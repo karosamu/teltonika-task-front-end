@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Teltonika front-end užduotis</title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="styles.css" />
+        <script src="script.js" async defer></script>
+        <!-- Oswald font -->
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600&display=swap"
+            rel="stylesheet"
+        />
+        <!-- Open Sans font -->
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap"
+            rel="stylesheet"
+        />
+        <!-- FontAwesome icons -->
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+            integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
+            crossorigin="anonymous"
+        />
+    </head>
+    <body>
+        <!-- Box for displaying information such as success messages and error messages -->
+        <div id="infoBox" class="infoBox centerBox">
+            <div class="infoContainer boxShadow centerBox">
+                <span id="textPlaceholder"></span>
+            </div>
+        </div>
+        <!-- Modal for add/edit country functions -->
+        <div id="formModal" class="modal">
+            <div id="formModalContent" class="modalContent boxShadow">
+                <span id="formTitle" class="formTitle"></span>
+                <form onsubmit="return false">
+                    <div class="group">
+                        <input
+                            autocomplete="off"
+                            minlength="3"
+                            name="name"
+                            id="nameInput"
+                            type="text"
+                            required
+                        />
+                        <label>Pavadinimas</label>
+                    </div>
+                    <div class="group">
+                        <input
+                            autocomplete="off"
+                            name="area"
+                            id="areaInput"
+                            type="number"
+                            required
+                        />
+                        <label>Užimamas plotas</label>
+                    </div>
+                    <div class="group">
+                        <input
+                            autocomplete="off"
+                            name="population"
+                            id="populationInput"
+                            type="number"
+                            required
+                        />
+                        <label>Gyventojų skaičius</label>
+                    </div>
+                    <div class="group">
+                        <input
+                            autocomplete="off"
+                            name="calling_code"
+                            id="codeInput"
+                            type="text"
+                            required
+                        />
+                        <label>Šalies Tel. kodas</label>
+                    </div>
+                    <div
+                        id="modalButtonContainer"
+                        class="modalButtonContainer"
+                    ></div>
+                </form>
+            </div>
+        </div>
+        <!-- Modal for confirming a delete -->
+        <div id="modal" class="modal">
+            <div id="modalContent" class="modalContent boxShadow">
+                <p class="modalText">
+                    Ar tikrai norite ištrinti "<span id="countryName"></span>"?
+                </p>
+                <div class="modalActionButtons">
+                    <div id="confirmDeleteButton"></div>
+                    <button
+                        onclick="cancelDelete()"
+                        class="modalNo boxShadow buttonStyle"
+                    >
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Main body/content -->
+        <div class="body">
+            <!-- Blue titlebar -->
+            <div class="navigation"><img src="./Vector.svg" /></div>
+            <!-- Content is divided into 3 main areas
+            -------------------------
+            | Header+      FilterBox|
+            |-----------------------|
+            | Search    FilterButton|
+            |-----------------------|
+            |      Data table       |
+            |    With pagination    |
+            |                       |
+            -------------------------
+            -->
+            <div class="content">
+                <div class="headerBox">
+                    <div class="header">
+                        ŠALYS
+                        <button
+                            class="headerButton boxShadow buttonStyle centerBox"
+                            onclick="addCountry()"
+                        >
+                            <span>+</span>
+                        </button>
+                    </div>
+                    <!-- Ideally this box would be a floating box above/under the button -->
+                    <div id="filterBox" class="dataFilter boxShadow">
+                        <div class="groupInput marginBox">
+                            <input
+                                autocomplete="off"
+                                name="date"
+                                id="dateInput"
+                                type="date"
+                                required
+                            />
+                            <label>Data</label>
+                        </div>
+                        <div class="boxShadow marginBox filterButtonBox">
+                            <button
+                                onclick="filterByDate()"
+                                class="buttonStyle confirmFilterButton"
+                            >
+                                Filtruoti
+                            </button>
+                            <button
+                                onclick="clearFilter()"
+                                class="buttonStyle crossButton"
+                            >
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="actionBar">
+                    <div class="searchBar boxShadow">
+                        <div class="inputContainer">
+                            <input
+                                autocomplete="off"
+                                class="inputStyle"
+                                id="search"
+                                oninput="searchItems()"
+                            />
+                        </div>
+                        <i class="fas fa-search searchIcon"></i>
+                    </div>
+                    <button
+                        onclick="datafilterToggle()"
+                        class="actionDropDown boxShadow buttonStyle"
+                    >
+                        DATA FILTER
+                        <i class="fas fa-caret-down dropDownIcon"></i>
+                    </button>
+                </div>
+                <div class="tableContainer boxShadow">
+                    <table class="dataTable" id="countries"></table>
+                    <div>
+                        <div
+                            class="pagination iconButton"
+                            id="pagination"
+                        ></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,441 @@
+* {
+    font-family: "Oswald", sans-serif;
+}
+
+* input {
+    font-family: "Open sans", sans-serif;
+}
+
+/* Global styles */
+.buttonStyle,
+.inputStyle {
+    background-color: #00000000;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+}
+
+.iconButton {
+    background-color: #00000000;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #5c5c5c;
+    border-radius: 5px;
+}
+
+.iconButton:hover i {
+    transition: 0.3s;
+    color: #0054a6;
+}
+
+.buttonStyle {
+    color: #969696;
+    cursor: pointer;
+}
+
+.inputStyle {
+    cursor: text;
+    font-family: "Open sans", sans-serif;
+}
+
+.centerBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttonStyle:hover {
+    transition: 0.3s;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0);
+}
+
+.boxShadow {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+/* Custom styles */
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.body {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-rows: 50px 19fr;
+}
+
+.navigation {
+    background-color: #0054a6;
+    padding: 10px 20vw;
+}
+
+.content {
+    background-color: #ffffff;
+    padding: 50px 20vw;
+}
+
+@media screen and (max-width: 700px) {
+    .content {
+        transition: 0.3s;
+        padding: 50px 10px;
+    }
+    .navigation {
+        transition: 0.3s;
+        padding: 10px 10px;
+    }
+}
+
+.header {
+    font-size: calc(3.5em + 1vmin);
+    color: #5c5c5c;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow-x: hidden;
+    padding-right: 10px;
+}
+
+.headerButton {
+    font-size: 0.7em;
+    height: 30px;
+    width: 30px;
+    border-radius: 50px !important;
+    margin: 10px 0 0 10px;
+}
+
+.headerButton span {
+    text-decoration: none;
+    color: #969696;
+    font-size: 30px;
+    font-family: sans-serif;
+}
+
+.actionBar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.actionBar .searchBar {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.inputContainer {
+    width: 100%;
+    margin-left: 10px;
+}
+
+.searchBar input {
+    font-size: 0.7em;
+    width: 100%;
+    font-size: 1em;
+}
+
+.searchIcon {
+    right: 0;
+    margin-right: 10px;
+    margin-left: 10px;
+    color: #565656;
+}
+
+.actionDropDown {
+    margin-right: 0;
+    margin-left: 20px;
+    width: 150px;
+    color: #969696;
+}
+
+.actionDropDown i {
+    margin-left: 10px;
+}
+
+.tableContainer {
+    margin-top: 20px;
+    background: #ffffff;
+    padding: 30px;
+}
+
+.dataTable {
+    width: 100%;
+}
+
+.tableHeader {
+    text-align: left;
+}
+
+.tableHeader th {
+    font-weight: normal;
+    font-size: calc(0.5vw+18px);
+    line-height: 27px;
+    text-transform: uppercase;
+    color: #5c5c5c;
+    word-break: break-all;
+}
+
+.tableHeader th:not(:first-child) {
+    padding-left: 10px;
+}
+
+.tableRow td:not(:first-child) {
+    padding-left: 10px;
+}
+
+.tableHeader th:last-child {
+    padding-right: 10px;
+}
+
+.tableRow td:last-child {
+    padding-right: 10px;
+}
+
+.tableRow td,
+a {
+    word-break: break-all;
+    font-family: "Open Sans", sans-serif;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 50px;
+    color: #5c5c5c;
+    text-decoration: none;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td + td,
+th + th {
+    border-left: 1px solid #969696;
+}
+tr + tr {
+    border-top: 1px solid #969696;
+}
+
+.tableActionButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.tableActionButtons span {
+    font-size: 20px;
+    font-weight: 100;
+    color: #969696;
+}
+
+.tableActionButtons i {
+    color: #969696;
+    font-size: 15px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+}
+
+.currentPage {
+    color: white !important;
+    background-color: #a3a3a3 !important;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.modalContent {
+    margin: 15% auto;
+    padding: 30px 40px 30px 40px;
+    width: max-content;
+    border-radius: 5px;
+}
+
+.modalText {
+    font-size: 24px;
+}
+
+.modalYes {
+    color: rgb(79, 221, 103);
+}
+
+.modalNo {
+    color: rgb(235, 72, 72);
+}
+
+.modalYes,
+.modalNo {
+    border-radius: 50px;
+    height: 50px;
+    width: 50px;
+}
+
+.group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.group input {
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 400px;
+    border: none;
+    border: 1px solid #969696;
+    border-radius: 10px;
+}
+
+.group input:focus {
+    outline: none;
+}
+
+.group label {
+    color: #969696;
+    font-size: 18px;
+    font-family: "Open sans", sans-serif;
+    position: absolute;
+    pointer-events: none;
+    left: 25px;
+    top: 10px;
+    transition: 0.2s ease all;
+}
+
+.group input ~ label,
+.group input ~ label {
+    top: -12px;
+    font-size: 14px;
+    background-color: #ffffff;
+    padding: 0px 5px 0px 5px;
+}
+
+.formTitle {
+    font-size: 2em;
+    color: #5c5c5c;
+}
+
+.modalContent form {
+    margin-top: 25px;
+}
+
+.modalButton {
+    font-size: 1em;
+    padding: 5px 15px 5px 15px;
+    color: #969696;
+    height: 40px;
+    width: 110px;
+    float: right;
+}
+
+.modalButtonContainer {
+    width: 100%;
+    height: 30px;
+}
+
+.dataFilter {
+    align-items: center;
+    justify-content: space-around;
+    display: none;
+    margin: 20px 0px 10px 0px;
+    height: 60px;
+    padding: 0px 10px 0px 10px;
+}
+
+.groupInput {
+    position: relative;
+}
+
+.groupInput input {
+    font-size: 12px;
+    padding: 5px 5px 5px 2px;
+    display: block;
+    width: 125px;
+    border: none;
+    border: 1px solid #969696;
+    border-radius: 10px;
+}
+
+.groupInput input:focus {
+    outline: none;
+}
+
+.groupInput label {
+    color: #969696;
+    font-size: 18px;
+    font-family: "Open sans", sans-serif;
+    position: absolute;
+    pointer-events: none;
+    left: 25px;
+    top: 10px;
+    transition: 0.2s ease all;
+}
+
+.groupInput input ~ label,
+.group input ~ label {
+    top: -12px;
+    font-size: 14px;
+    background-color: #ffffff;
+    padding: 0px 5px 0px 5px;
+}
+
+.confirmFilterButton {
+    width: 70px;
+}
+
+.crossButton {
+    width: 30px;
+}
+
+.filterButtonBox {
+    display: flex;
+    justify-content: space-between;
+    width: 100px;
+    height: 30px;
+}
+
+.headerBox {
+    display: flex;
+    justify-content: space-between;
+}
+
+.marginBox {
+    margin: 0px 15px;
+}
+
+.modalActionButtons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.sortHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.infoBox {
+    position: absolute;
+    width: 100vw;
+    top: 50px;
+    display: none;
+}
+
+.infoContainer {
+    background-color: #ffffff;
+    width: 300px;
+    height: 75px;
+}
