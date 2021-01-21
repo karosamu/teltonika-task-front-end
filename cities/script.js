@@ -180,7 +180,7 @@ const confirmDelete = (id) => {
             appendElements(array);
         }
     });
-    let response = deleteCity(id);
+    deleteCity(id);
 };
 
 const deleteCity = async (id) => {
@@ -188,7 +188,6 @@ const deleteCity = async (id) => {
         const response = await fetch(url + `/${id}`, {
             method: "DELETE",
         });
-        const data = await response.json();
     } catch (err) {
         popInfo(err);
     }
@@ -230,7 +229,6 @@ const submitCity = async () => {
                     `&country_id=${vars.id}`,
                 { method: "POST" }
             );
-            const data = await response.json();
             formModal.style.display = "none";
             popInfo(`${nameIn.value} sukurta sėkmingai`);
             getData();
@@ -244,7 +242,7 @@ const submitCity = async () => {
 
 const editItem = (id) => {
     let editCity;
-    array.map((city, index) => {
+    array.map((city) => {
         if (city.id === id) {
             editCity = city;
         }
@@ -287,8 +285,7 @@ const editCity = async (id) => {
                     `&country_id=${vars.id}`,
                 { method: "PUT" }
             );
-            const data = await response.json();
-            array.map((city, index) => {
+            array.map((city) => {
                 if (city.id === id) {
                     city.calling_code = codeIn.value;
                     city.name = nameIn.value;
@@ -351,7 +348,7 @@ const searchItems = () => {
 // It will disable the filter. This can be disabled by simply removing
 // appendElements() lines and toggleFilter setter in 1st if block
 
-const datafilterToggle = () => {
+const dateFilterToggle = () => {
     if (toggledFilter) {
         document.getElementById("filterBox").style.display = "none";
         toggledFilter = !toggledFilter;

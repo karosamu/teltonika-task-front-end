@@ -109,11 +109,12 @@ body {
     margin: 10px 0 0 10px;
 }
 
-.headerButton span {
-    text-decoration: none;
+.headerButton i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: #969696;
-    font-size: 30px;
-    font-family: sans-serif;
+    font-size: 20px;
 }
 
 .actionBar {
@@ -166,6 +167,8 @@ body {
 
 .dataTable {
     width: 100%;
+    overflow-x: auto;
+    min-width: 600px;
 }
 
 .tableHeader {
@@ -178,7 +181,6 @@ body {
     line-height: 27px;
     text-transform: uppercase;
     color: #5c5c5c;
-    word-break: break-all;
 }
 
 .tableHeader th:not(:first-child) {
@@ -199,7 +201,6 @@ body {
 
 .tableRow td,
 a {
-    word-break: break-all;
     font-family: "Open Sans", sans-serif;
     font-weight: normal;
     font-size: 14px;
@@ -348,12 +349,11 @@ tr + tr {
 }
 
 .dataFilter {
+    margin-top: 20px;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     display: none;
-    margin: 20px 0px 10px 0px;
     height: 60px;
-    padding: 0px 10px 0px 10px;
 }
 
 .groupInput {

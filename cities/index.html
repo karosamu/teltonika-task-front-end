@@ -111,9 +111,11 @@
             <div class="navigation"><img src="../Vector.svg" /></div>
             <!-- Content is divided into 3 main areas
             -------------------------
-            | Header+      FilterBox|
+            | Header+               |
             |-----------------------|
             | Search    FilterButton|
+            |-----------------------|
+            |      Filter area      |
             |-----------------------|
             |      Data table       |
             |    With pagination    |
@@ -128,11 +130,31 @@
                             class="headerButton boxShadow buttonStyle centerBox"
                             onclick="addCity()"
                         >
-                            <span>+</span>
+                            <span><i class="fas fa-plus"></i></span>
                         </button>
                     </div>
-                    <!-- Ideally this box would be a floating box above/under the button -->
-                    <div id="filterBox" class="dataFilter boxShadow">
+                </div>
+                <div class="actionBar">
+                    <div class="searchBar boxShadow">
+                        <div class="inputContainer">
+                            <input
+                                autocomplete="off"
+                                class="inputStyle"
+                                id="search"
+                                oninput="searchItems()"
+                            />
+                        </div>
+                        <i class="fas fa-search searchIcon"></i>
+                    </div>
+                    <button
+                        onclick="dateFilterToggle()"
+                        class="actionDropDown boxShadow buttonStyle"
+                    >
+                        DATA FILTER
+                        <i class="fas fa-caret-down dropDownIcon"></i>
+                    </button>
+                </div>
+                <div id="filterBox" class="dataFilter boxShadow">
                         <div class="groupInput marginBox">
                             <input
                                 autocomplete="off"
@@ -158,27 +180,6 @@
                             </button>
                         </div>
                     </div>
-                </div>
-                <div class="actionBar">
-                    <div class="searchBar boxShadow">
-                        <div class="inputContainer">
-                            <input
-                                autocomplete="off"
-                                class="inputStyle"
-                                id="search"
-                                oninput="searchItems()"
-                            />
-                        </div>
-                        <i class="fas fa-search searchIcon"></i>
-                    </div>
-                    <button
-                        onclick="datafilterToggle()"
-                        class="actionDropDown boxShadow buttonStyle"
-                    >
-                        DATA FILTER
-                        <i class="fas fa-caret-down dropDownIcon"></i>
-                    </button>
-                </div>
                 <div class="tableContainer boxShadow">
                     <table class="dataTable" id="cities"></table>
                     <div>
